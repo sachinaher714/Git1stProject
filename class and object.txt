@@ -1,0 +1,232 @@
+Instance vaiable
+
+Note: value object to object change ---> instance variable
+
+
+where we can declare 
+
+1.inside constructor ---> by using self 
+
+2.inside instance method by using self
+class Test:
+    def __init__(self,name,duration,content):
+        self.name=name
+        self.duration =duration
+        self.content = content
+
+    def cal(self):
+        print(self.name)
+        print(self.duration)
+        print(self.content)
+    def test1(self,a,b):
+        self.temp = "This is instance variable"
+        self.a=a
+        self.b=b
+        print(self.temp)
+        print(self.a+self.b)
+
+t1 = Test('python',56,'Adv')
+t1.cal()
+t1.test1(100,200)
+
+
+3. outside the class using object reference 
+
+2.Static Variable
+
+value --- not varied obj to obj
+class A:
+    course = "python"
+    def __init__(self,name,branch):
+        self.name=name
+        self.branch=branch
+    def show(self):
+        print(self.name)
+        print(self.branch)
+        print(A.course)
+obj = A('Kartik','IT')
+obj.show()
+
+class Test:
+    username = 'admin'
+    password = 'admin@123'
+    port = 565
+    host = 'localhost'
+
+print(Test.username)
+
+
+t1 = Test()
+
+print(t1.username)
+print(t1.password)
+
+class Sample:
+    course_name = "python"
+    def __init__(self,name,loc):
+        self.name=name
+        self.loc =loc
+    def cal(self):
+        if self.loc=='pune':
+            temp = 50000
+            print(self.name)
+            print(self.loc)
+            print(Sample.course_name)
+            print("fees:",temp)
+        else:
+            temp = 90000
+            print(self.name)
+            print(self.loc)
+            print(Sample.course_name)
+            print("fees:", temp)
+obj = Sample("Akash",'mumbai')
+obj.cal()
+
+
+class Sample:
+    def __init__(self,id,name,salary):
+        self.id=id
+        self.name=name
+        self.salary=salary
+    def cal(self):
+        self.bonus = 0.5
+        self.total = self.salary + self.salary*self.bonus
+        self.display(self.total)
+
+    def display(self,temp):
+        print(f"Name:{self.name}")
+        print(f"id : {self.id}")
+        print(f"salary :{temp}")
+
+
+while True:
+    id = int(input("Enter the id:"))
+    name = input("Enter the name:")
+    salary = int(input("Enter the salary:"))
+    obj = Sample(id,name,salary)
+    obj.cal()
+
+    choice = input("do you want to continue [yes|no ] :")
+    if choice=='no':
+        break
+
+class Scoodeen:
+    course = "Python"
+
+    @classmethod
+    def m1(cls,name):
+        print(cls.course)
+        print(name)
+
+Scoodeen.m1('Java')
+
+when we want to use class variable without creating object then we can class method
+cls ---  
+@classmethod
+
+
+
+
+
+class Operation:
+    @staticmethod
+    def add(a,b):
+        print(a+b)
+
+Operation.add(10,30)
+
+
+
+
+instance classmethod
+
+general operation --- staticmethod
+
+class varibale --- classmethod
+
+
+inner class:
+class Company:
+    def __init__(self):
+        print("class constructor")
+    class Employee:
+        def __init__(self):
+            print("Employee constructor")
+        def m1(self):
+            print("in m1")
+'''           
+company_obj = Company()
+
+employee = company_obj.Employee()
+
+employee.m1()
+'''
+
+Company().Employee().m1()
+
+class A:
+    def __init__(self):
+        print("in A")
+    def m1(self):
+        print("in m1")
+class B(A):
+    def m2(self):
+        print("in m2")
+
+# B ---init A and m1 from A +  m2
+
+obj = B()
+obj.m1()
+obj.m2()
+class A:
+    def __init__(self):
+        print("from A")
+    def m1(self):
+        print("in m1")
+class B(A):
+    def __init__(self):
+        print("from B")
+        super(B, self).__init__()
+
+    def m2(self):
+        print("in m2")
+class C(B):
+    def __init__(self):
+        print("from C")
+        super().__init__()
+
+    def m3(self):
+        print("in m3")
+
+obj = C()
+obj.m1()
+
+obj.m3()
+
+class A:
+    def m1(self):
+        print("from m1")
+
+class B:
+    def m2(self):
+        print("from m2")
+
+class C(A,B):
+    pass
+obj = C()
+obj.m2()
+obj.m1()
+class A:
+    def m1(self):
+        print("from m1")
+class B:
+    def m2(self):
+        print("from m2")
+class C(A,B):
+    pass
+obj = C()
+obj.m2()
+obj.m1()
+
+
+
